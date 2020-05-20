@@ -10,12 +10,11 @@ struct FenwickTree
 {
     vector<int> bit;
     int n;
-    int inf = 1e9;
  
-    FenwickTreeMin(int n) 
+    FenwickTree(int n) 
     {
         this->n = n;
-        bit.assign(n+1, inf);
+        bit.assign(n+1, 0);
     }
  
     void updateRange(int l,int r,int x)
