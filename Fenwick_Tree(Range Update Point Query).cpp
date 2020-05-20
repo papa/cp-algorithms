@@ -12,7 +12,7 @@ struct FenwickTree
     int n;
     int inf = 1e9;
  
-    FenwickTreeMin(int n) 
+    FenwickTree(int n) 
     {
         this->n = n;
         bit.assign(n+1, inf);
