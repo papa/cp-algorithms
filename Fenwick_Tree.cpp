@@ -4,6 +4,10 @@ using namespace std;
 
 typedef long long ll;
 
+//fenwick moze da se koristi ovako za sve funkcije 
+//kao sto su max i min pri cemu one 
+//mogu da se koriste samo za interval [1,k]
+
 struct FenwickTree
 {
    vector<int> bit;
