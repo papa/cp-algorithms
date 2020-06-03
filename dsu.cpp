@@ -10,6 +10,8 @@ typedef long long ll;
 //2) Broj komponenti u grafu
 //3) Cuvanje odredjenih informacija o nekom setu 
 //4) Painting subarrays offline
+//5) Arpa's trick (p[i] je prvi manji elemnt od njega sa desne strane
+//zatim za poziciju i resavamo svaki query gde je q.r = i,offline algoritam) 
 
 struct DSU //sa svim optimizacijama u proseku je slozenost konstanta
 {
