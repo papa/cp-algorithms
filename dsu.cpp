@@ -37,7 +37,7 @@ struct DSU //sa svim optimizacijama u proseku je slozenost konstanta
     int find_set(int v)
     {
         if(v==p[v]) return v;
-        return p[v] = find_set(v);
+        return p[v] = find_set(p[v]);
     }
     
     //ovde je uradjen union by size
