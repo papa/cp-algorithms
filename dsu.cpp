@@ -12,6 +12,7 @@ typedef long long ll;
 //4) Painting subarrays offline
 //5) Arpa's trick (p[i] je prvi manji elemnt od njega sa desne strane
 //zatim za poziciju i resavamo svaki query gde je q.r = i,offline algoritam) 
+//6) tehnika Small to Large je jedna vrsta DSU primene nad stablima https://codeforces.com/blog/entry/44351
 
 struct DSU //sa svim optimizacijama u proseku je slozenost konstanta
 {
