@@ -116,6 +116,78 @@ struct DSU_with_distance
     }
 };
 
+struct DSU_check_bipartite 
+{
+    int n;
+    vector<pair<int,int>> p;
+    vector<int> rank;
+    vector<bool> bip;
+    
+    DSU_check_bipartite()
+    {
+        
+    }
+    
+    void build()
+    {
+        for(int i=1;i<=n+1;i++) 
+        {
+            p[i] = {i,0};
+            rank[i] = 0;
+            bip[i] = true;
+        }
+    }
+    
+    DSU_check_bipartite(int nn)
+    {
+        this->n = nn;
+        p.resize(nn+1);
+        rank.resize(nn+1);
+        bip.resize(nn+1);
+        build();
+    }
+    
+    pair<int,int> find_set(int v)
+    {
+        if(v!=p[v].first)
+        {
+            int par = p[v].second;
+            p[v] = find_set(p[v].first);
+            p[v].second^=par;
+        }
+        return p[v];
+    }
+    
+    void add_edge(int a,int b)
+    {
+        pair<int,int> pa = find_set(a);
+        a = pa.first;
+        int x = pa.second;
+        
+        pair<int,int> pb = find_set(b);
+        b = pb.first;
+        int y = pb.second;
+        
+        if(a==b)
+        {
+            if(x==y) bip[a] = false;
+        }
+        else
+        {
+            if(rank[a] < rank[b]) swap(a,b);
+            p[b] = {a,x^y^1};
+            bip[a]=bip[a] & bip[b];
+            if(rank[a]==rank[b]) rank[a]++;
+        }
+    }
+    
+    bool is_bipartite(int v)
+    {
+        return bip[find_set(v).first];
+    }
+    
+};
+
 
 int main() 
 {
