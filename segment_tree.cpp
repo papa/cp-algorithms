@@ -4,6 +4,15 @@ using namespace std;
 
 typedef long long ll;
 
+//svaki cvor je odgovoran za odredjeni segment
+//slozenost operacije je O(log N)
+//neke od operacija koje se mogu raditi na segmentnom su
+//1) zbir
+//2) proizvod 
+//3) max i min
+//4) gcd/lcm
+
+
 struct segment_tree
 {
     int n;
