@@ -11,7 +11,9 @@ typedef long long ll;
 //2) proizvod 
 //3) max i min
 //4) gcd/lcm
-
+//5) k-ta nula u nizu
+//6) prvi broj u podnizu koji je veci od x
+//7) prefiksna suma koja je jednaka s
 
 struct segment_tree
 {
