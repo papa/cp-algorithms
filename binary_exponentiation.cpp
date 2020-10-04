@@ -6,7 +6,7 @@ typedef long long ll;
 
 ll binpow(ll a,ll b)
 {
-  if(b==0) return 1LL;
+  if(b<=0) return 1LL;
   ll res = binpow(a,b/2);
   if(b%2) return res*res*a;
   else return res*res;
@@ -26,13 +26,13 @@ ll binpow2(ll a,ll b)
 
 pair<ll,ll> fib(int n)
 {
-  if(n==0) return {0LL,1LL};
+  if(n==0) return make_pair(0LL,1LL);
 
   pair<ll,ll> p = fib(n >> 1);
   ll c = p.first*(2LL*p.second - p.first);
   ll d = p.first*p.first + p.second*p.second;
-  if(n&1) return {d,c+d};
-  else return {c,d};
+  if(n&1) return make_pair(d,c+d);
+  else return make_pair(c,d);
 }
 
 vector<int> f(vector<int> a,vector<int> p)
@@ -56,8 +56,8 @@ vector<int> binpow_perm(vector<int> a,vector<int> p,int k)
 ll mult_mod(ll a,ll b,ll mod)
 {
   if(a==0) return 0LL;
-  if(a&1) return (2LL*mult_mod((a-1)/2LL,b)%mod+b)%mod;
-  return 2LL*mult_mod(a/2LL,b)%mod;
+  if(a&1) return (2LL*mult_mod((a-1)/2LL,b,mod)%mod+b)%mod;
+  return 2LL*mult_mod(a/2LL,b,mod)%mod;
 }
 
 int main()
@@ -66,8 +66,6 @@ int main()
   cin.tie(0);
   cout.tie(0);
   cerr.tie(0);
-
-
 
   return 0;
 }
